@@ -1,3 +1,12 @@
+# rBST: Contains
+# Implement the r_contains method of the BinarySearchTree class. This method should recursively search the binary search tree for a given value, starting from the root node, and return True if the value is found, and False otherwise.
+
+# You should use a private helper method __r_contains to perform the recursive search. This method should take two arguments: a current node in the tree, and the value to search for.
+
+# The __r_contains method should check whether the current node is None. If it is, the method should return False. If the value to search for is equal to the value of the current node, the method should return True. If the value is less than the value of the current node, the method should call itself recursively with the left child node and the value. If the value is greater than the value of the current node, the method should call itself recursively with the right child node and the value.
+
+# Your implementation of the r_contains method should return the output of the __r_contains method.
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -46,7 +55,19 @@ class BinarySearchTree:
     #                                 #
     #                                 #
     ###################################
-        
+    def __r_contains(self, current_node, value):
+        if current_node == None:
+            return False
+        if value == current_node.value:
+            return True
+        if value < current_node.value:
+            return self.__r_contains(current_node.left, value)
+        if value > current_node.value:
+            return self.__r_contains(current_node.right, value)
+        return False
+    
+    def r_contains(self, value):
+        return self.__r_contains(self.root, value)
 
 
 
@@ -78,3 +99,40 @@ print(my_tree.r_contains(17))
 
 """
 
+# The r_contains method takes a value as input and returns True if the value is found in the binary search tree, and False otherwise. It does this by calling a private recursive helper method called __r_contains.
+
+# The __r_contains method takes two arguments: a current_node representing the node in the binary search tree that is currently being searched, and the value that is being searched for. It recursively searches the binary search tree for the value starting from the current_node. If the value is found, it returns True. If the value is not found and current_node is None, it returns False. If the value is not equal to the current_node value, it determines whether to search the left or right subtree based on whether the value is less than or greater than the current_node value, respectively. It then calls itself recursively with the appropriate child node and the value.
+
+# The r_contains method simply calls the __r_contains method with the root node of the binary search tree and the value that is being searched for, and returns the output of the __r_contains method.
+
+
+
+
+
+# Code with inline comments:
+
+
+
+# def __r_contains(self, current_node, value):
+#     # If current_node is None, we have reached a leaf node and
+#     # the value is not present in the tree.
+#     if current_node == None: 
+#         return False      
+#     # If the value matches the value of the current_node, we have found
+#     # the value and return True.
+#     if value == current_node.value:
+#         return True 
+#     # If the value is less than the value of the current_node, we recurse
+#     # on the left subtree.
+#     if value < current_node.value:
+#         return self.__r_contains(current_node.left, value) 
+#     # If the value is greater than the value of the current_node, we recurse
+#     # on the right subtree.
+#     if value > current_node.value:
+#         return self.__r_contains(current_node.right, value)
+ 
+# def r_contains(self, value):
+#     # The r_contains method calls the private helper method __r_contains
+#     # with the root node of the tree and the value to search for.
+#     # It returns the output of __r_contains.
+#     return self.__r_contains(self.root, value)
