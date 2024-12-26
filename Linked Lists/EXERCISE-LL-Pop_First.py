@@ -99,7 +99,7 @@ class LinkedList:
         # disconnect the removed node from the list by removing the reference to it
         temp.next = None
         
-        # decrease the length of the linked list by 1
+        # decrease the length of the linked list by 1-
         self.length -= 1
         
         # in the case that the linked list started with 1 node and we popped, we check if the linked list is now empty, and if it is, self.head should already be None, however, self.tail is not updated and should now be set to None

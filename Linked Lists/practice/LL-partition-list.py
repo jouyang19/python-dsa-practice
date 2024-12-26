@@ -134,7 +134,7 @@ class LinkedList:
 #  +=====================================================+
 
 
-Function to convert linked list to Python list
+# Function to convert linked list to Python list
 def linkedlist_to_list(head):
     result = []
     current = head
